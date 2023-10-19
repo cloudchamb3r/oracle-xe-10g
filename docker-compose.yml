@@ -1,0 +1,12 @@
+version: '3.0'
+services:
+  database:
+    build:
+      context: ./images
+      dockerfile: Dockerfile
+    environment:
+      - ORACLE_SID=xe
+      - ORACLE_PWD=oracle
+    ports:
+      - 1888:1521
+      - 8088:8080
