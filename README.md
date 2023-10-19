@@ -121,6 +121,49 @@
     ```sql
     SELECT * FROM another_schema.table 
     ```
+- load .sql data
+    ```bash
+    SQL> $<filepath>.sql
+    ```
+    > if you met some error on loading sql then check Sample sql's `CONNECT phrase`     
+    > for example, `CONNECT SCOTT/TIGER` should be change into the appropriate connection string such as `CONNECT SCOTT/TIGER@localhost:1888/xe`   
 
+- fix typo error in sqlplus
+    ```bash 
+    SQL> ED 
+        --- Edit Buffer ---
+    SQL> / [Slash] => buffer edited on the above process - ED - will be execute
+    ```
+- primary key
+    - pk -> ensures integrity ;)
+
+- dual table 
+    just a dummy
+
+    ```bash
+    SQL> DESC DUAL; 
+     이름                                      널?      유형
+     ----------------------------------------- -------- ----------------------------
+     DUMMY                                              VARCHAR2(1)
+    ```
+- create sequence
+    - 1,2,3,4... 
+    ```sql
+    CREATE SEQUENCE my_seq; -- create `my_seq` 
+    ```
+- retrieving value from sequence
+    ```sql
+    SELECT my_seq.NEXTVAL FROM DUAL;
+    -- **NEXTVAL is a function**
+    ```
+- inserting tuple with primary key using sequence
+    ```sql 
+    INSERT INTO member
+        (num, name, addr) 
+    VALUES
+        (member_seq.NEXTVAL, '해골', '행신동');
+    ```
+- concat!!
+    elem || elem   -- oracle 
 
 
