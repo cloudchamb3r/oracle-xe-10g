@@ -11,7 +11,8 @@
     ```
 - Oracle CLI tool
     ```bash
-    $ sqlplus
+    $ sqlplus // basic local client
+    $ sqlplus "system/oracle@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=localhost)(Port=1888))(CONNECT_DATA=(SID=xe)))" // docker instance connection on localhost:1888
     ```
     - default sid is `xe`  
     - default user is `system`  
@@ -83,3 +84,20 @@
     ```sql
     DESC users; 
     ```
+- commit 
+    commit tx
+    ```sql
+    COMMIT; 
+    ```
+- update tuple data
+    ```sql
+    UPDATE users
+    SET addr = '에버랜드' 
+    WHERE num = 1;
+    ```
+- delete tuple 
+    ```sql
+    DELETE FROM users
+    WHERE num=2; 
+    ```
+
