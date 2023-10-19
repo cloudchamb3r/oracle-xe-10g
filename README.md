@@ -39,11 +39,15 @@
     GRANT `PRIV` TO `USER`; 
     GRANT resource, connect TO kimgura;
     ```
+    
+    ```sql
+    GRANT select, insert, update, delte ON table_name to user_name; 
+    ```
 
 - clear screen in sqlplus
     ```bash
-    SQL> ho[st] cls // windows
-    SQL> ho[st] clear // *nix
+    SQL> ho[st] cls -- windows
+    SQL> ho[st] clear -- *nix
     ```
 - create table 
     회원정보를 table 에 저장하고자 한다
@@ -89,15 +93,34 @@
     ```sql
     COMMIT; 
     ```
-- update tuple data
+- auto commit 
+    ```sql
+    SET AUTOCOMMIT ON  -- enable auto commit
+    SET AUTOCOMMIT OFF -- disable auto commit
+    ```
+- update table data
     ```sql
     UPDATE users
     SET addr = '에버랜드' 
     WHERE num = 1;
     ```
-- delete tuple 
+- delete table row
     ```sql
     DELETE FROM users
     WHERE num=2; 
     ```
+- drop table 
+    ```sql
+    DROP TABLE users; 
+    ```
+- change schema 
+    ```sql
+    ALTER SESSION SET CURRENT_SCHEMA=schema_name; 
+    ```
+- querying another schema 
+    ```sql
+    SELECT * FROM another_schema.table 
+    ```
+
+
 
