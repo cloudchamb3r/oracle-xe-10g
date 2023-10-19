@@ -8,5 +8,5 @@ services:
       - ORACLE_SID=xe
       - ORACLE_PWD=oracle
     ports:
-      - 1888:1521
-      - 8088:8080
+      - 1888:1521 # host port 1888 mapped to container's port 1521
+      - 8088:8080 # host port 8088 mapped to container's port 8080
