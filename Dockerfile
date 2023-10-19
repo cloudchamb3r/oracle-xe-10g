@@ -1,12 +1,12 @@
 FROM debian:wheezy
 
-MAINTAINER db520 <dragonbest520@gmail.com>
+LABEL MAINTAINER="@cloudchabm3r"
 
 ENV ORACLE_HOME=/usr/lib/oracle/xe/app/oracle/product/10.2.0/server
 ENV LD_LIBRARY_PATH=$ORACLE_HOME/lib
 ENV PATH=$ORACLE_HOME/bin:$PATH
 ENV ORACLE_SID=XE
-ENV TZ=Asia/Shanghai
+ENV TZ=Asia/Seoul
 
 ADD oracle-xe-universal_10.2.0.1-1.1_i386.debaa /
 ADD oracle-xe-universal_10.2.0.1-1.1_i386.debab /
@@ -14,11 +14,11 @@ ADD oracle-xe-universal_10.2.0.1-1.1_i386.debac /
 
 RUN dpkg --add-architecture i386 && \
     apt-get update && apt-get install -y \
-       bc:i386 \
-       libaio1:i386 \
-       libc6-i386 \
-       net-tools \
-       openssh-server && \
+    bc:i386 \
+    libaio1:i386 \
+    libc6-i386 \
+    net-tools \
+    openssh-server && \
     apt-get clean && \
     mkdir /var/run/sshd && \
     echo 'root:admin' | chpasswd && \
@@ -50,7 +50,7 @@ CMD sed -i -E "s/HOST = [^)]+/HOST = $HOSTNAME/g" /usr/lib/oracle/xe/app/oracle/
     echo "ALTER SYSTEM SET JOB_QUEUE_PROCESSES=0;" | sqlplus -s SYS/oracle as sysdba; \
     echo "ALTER SYSTEM SET AQ_TM_PROCESSES=0;" | sqlplus -s SYS/oracle as sysdba; \
     echo "ALTER DATABASE OPEN;" | sqlplus -s SYS/oracle as sysdba; \
-    echo "ALTER DATABASE CHARACTER SET INTERNAL_USE ZHS16GBK;" | sqlplus -s SYS/oracle as sysdba; \
+    echo "ALTER DATABASE CHARACTER SET INTERNAL_USE KO16KSC5601;" | sqlplus -s SYS/oracle as sysdba; \
     echo "SHUTDOWN IMMEDIATE;" | sqlplus -s SYS/oracle as sysdba; \
     echo "STARTUP;" | sqlplus -s SYS/oracle as sysdba; \
     /usr/sbin/sshd -D
