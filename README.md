@@ -1,6 +1,6 @@
 # Oracle Xe 10g
 
-- Installatiion
+- Installation
     - Requirements 
         - Docker, Docker Desktop on Windows/MacOS 
     ```bash
