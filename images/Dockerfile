@@ -16,7 +16,7 @@ RUN dpkg --add-architecture i386 && \
     apt-get update && apt-get install -y \
     bc:i386 \
     libaio1:i386 \
-    libc6-i386 \
+    libc6:i386 \
     net-tools \
     openssh-server && \
     apt-get clean && \
