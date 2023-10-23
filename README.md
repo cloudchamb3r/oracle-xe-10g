@@ -12,7 +12,7 @@
 - Oracle CLI tool
     ```bash
     $ sqlplus // connection to local
-    $ sqlplus system/oracle@localhost:1888 // connection to container 
+    $ sqlplus system/oracle@localhost:1521 // connection to container 
     ```
     - default sid is `xe`  
     - default user is `system`  
